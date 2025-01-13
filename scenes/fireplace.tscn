@@ -1,0 +1,191 @@
+[gd_scene load_steps=18 format=3 uid="uid://bxr2al06j3qfb"]
+
+[ext_resource type="Script" path="res://scripts/fireplace.gd" id="1_ratr1"]
+[ext_resource type="PackedScene" uid="uid://cwhp7r2yl0t64" path="res://scenes/flames.tscn" id="2_0w5wx"]
+[ext_resource type="Texture2D" uid="uid://c30qwyo5spux0" path="res://assets/logs.svg" id="3_osmcr"]
+[ext_resource type="Texture2D" uid="uid://ddwpiwhmtty0e" path="res://assets/ember.svg" id="3_rec3t"]
+[ext_resource type="Texture2D" uid="uid://cjiin0kc0yoca" path="res://assets/circle.svg" id="3_tdmsr"]
+[ext_resource type="Texture2D" uid="uid://j53noxqf68ug" path="res://assets/RocksFront.svg" id="4_it7ex"]
+[ext_resource type="Texture2D" uid="uid://dpyw55bl506mb" path="res://assets/RocksBehind.svg" id="5_7tc50"]
+[ext_resource type="Texture2D" uid="uid://rkae1c107rog" path="res://assets/shadow_fireplace.svg" id="7_ibso0"]
+[ext_resource type="AudioStream" uid="uid://cwh3mmjo3u75o" path="res://audio/ambience/fire.ogg" id="9_632ft"]
+
+[sub_resource type="Curve" id="Curve_l7l1l"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_o1hfs"]
+colors = PackedColorArray(0.337255, 0.337255, 0.337255, 0.329412, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_153ok"]
+offsets = PackedFloat32Array(0, 0.526667, 1)
+colors = PackedColorArray(1, 1, 0, 1, 1, 0.545098, 0.0117647, 1, 1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5sugf"]
+
+[sub_resource type="Animation" id="Animation_dkpiq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../RocksFront:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_iy51n"]
+resource_name = "log_shake"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0758592, 0.015989, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("../RocksFront:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.12), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uw2r4"]
+_data = {
+"RESET": SubResource("Animation_dkpiq"),
+"log_shake": SubResource("Animation_iy51n")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6vtf"]
+size = Vector2(68, 45.75)
+
+[node name="Fireplace" type="Area2D" groups=["Flames"]]
+script = ExtResource("1_ratr1")
+fire_collision = ExtResource("2_0w5wx")
+
+[node name="Smoke" type="CPUParticles2D" parent="."]
+position = Vector2(10, 4)
+scale = Vector2(1, 1.01741)
+amount = 50
+lifetime = 6.0
+preprocess = 1.0
+randomness = 0.41
+lifetime_randomness = 0.55
+texture = ExtResource("3_tdmsr")
+emission_shape = 3
+emission_rect_extents = Vector2(25, 1)
+direction = Vector2(0, -1)
+spread = 5.0
+gravity = Vector2(0, 10)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+angular_velocity_min = 5.0
+angular_velocity_max = 10.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_l7l1l")
+color_ramp = SubResource("Gradient_o1hfs")
+
+[node name="Fire" type="CPUParticles2D" parent="."]
+position = Vector2(6, -26)
+scale = Vector2(1, 1.01741)
+amount = 50
+randomness = 0.75
+lifetime_randomness = 0.51
+texture = ExtResource("3_rec3t")
+emission_shape = 3
+emission_rect_extents = Vector2(40, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 30)
+initial_velocity_min = 100.0
+initial_velocity_max = 250.0
+angular_velocity_min = 10.0
+angular_velocity_max = 10.0
+damping_max = 500.0
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_l7l1l")
+color_ramp = SubResource("Gradient_153ok")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Flames"]]
+position = Vector2(0, -33)
+scale = Vector2(5.145, 5.145)
+shape = SubResource("CircleShape2D_5sugf")
+
+[node name="Logs" type="Sprite2D" parent="."]
+modulate = Color(0.165293, 0.100576, 6.01634e-08, 1)
+z_index = -1
+position = Vector2(10, -6)
+texture = ExtResource("3_osmcr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Logs"]
+libraries = {
+"": SubResource("AnimationLibrary_uw2r4")
+}
+
+[node name="ShadowFireplace2" type="Sprite2D" parent="."]
+modulate = Color(1, 0.819608, 0.180392, 0.278431)
+position = Vector2(6, -12)
+scale = Vector2(0.481521, 1.60601)
+texture = ExtResource("7_ibso0")
+
+[node name="RocksFront" type="Sprite2D" parent="."]
+modulate = Color(0.407892, 0.314986, 0.30166, 1)
+position = Vector2(3, 21)
+texture = ExtResource("4_it7ex")
+
+[node name="RocksBehind" type="Sprite2D" parent="."]
+modulate = Color(0.214062, 0.157282, 0.148459, 1)
+z_index = -2
+position = Vector2(9, 2)
+texture = ExtResource("5_7tc50")
+metadata/_edit_lock_ = true
+
+[node name="ShadowFireplace" type="Sprite2D" parent="."]
+modulate = Color(0.712129, 0.712129, 0.712129, 1)
+z_index = -4
+position = Vector2(7, 26)
+texture = ExtResource("7_ibso0")
+metadata/_edit_lock_ = true
+
+[node name="LogsCollider" type="Area2D" parent="." groups=["Logs"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LogsCollider"]
+position = Vector2(-2, -15.125)
+shape = SubResource("RectangleShape2D_v6vtf")
+
+[node name="FireAudio" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+position = Vector2(12, -23)
+stream = ExtResource("9_632ft")
+autoplay = true
+bus = &"SFX"
+
+[connection signal="area_entered" from="LogsCollider" to="." method="_on_logs_collider_area_entered"]

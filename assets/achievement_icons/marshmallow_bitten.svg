@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="32.116013mm"
+   height="34.293976mm"
+   viewBox="0 0 32.116013 34.293976"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="Schmallow.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.0343421"
+     inkscape:cx="268.76988"
+     inkscape:cy="-111.66519"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-101.87699,41.215659)">
+    <path
+       style="display:inline;fill:#ffffff;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 106.93348,-38.959973 -3.32539,2.302187 1.15109,9.464551 -0.89529,13.30153 0.2558,3.325383 9.97615,2.430087 11.89464,-0.639495 4.86017,-2.17429 1.0232,-6.394966 c -3.82134,2.865216 -5.31435,1.179593 -6.52159,-1.064581 -0.82446,-2.931776 2.17424,-4.334286 3.48787,-6.410825 l -2.94165,-4.676363 c 1.03135,-4.903304 3.72223,-5.196828 5.71957,-7.41683 l -2.04639,-2.941685 h -10.61565 l -9.97615,0.383699 z"
+       id="path4"
+       inkscape:export-filename="..\Godot\Games\2025 Monthly\january\assets\marshmallow.svg"
+       inkscape:export-xdpi="22.4"
+       inkscape:export-ydpi="22.4"
+       sodipodi:nodetypes="ccccccccccccccccc" />
+    <path
+       style="fill:#ececec;stroke:none;stroke-width:0.218719px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 107.21076,-39.215772 c -2e-5,-1.4e-5 -2.02103,-0.310596 1.39841,16.371114 1.50238,7.329316 -0.50736,10.423796 15.7465,14.516576 0.56395,0.142003 -20.02915,-1.598742 -20.02915,-1.598742 l -0.87402,-3.836982 0.52441,-12.406235 -1.13621,-9.976149 1.66062,-2.941683 z"
+       id="path5"
+       sodipodi:nodetypes="csscccccc" />
+    <path
+       id="path6"
+       style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-dasharray:none;paint-order:markers fill stroke"
+       d="m 108.20566,-39.713983 c 6.63638,0.175153 12.67473,0.0895 18.85821,0 2.66468,-0.03857 7.15837,2.935039 4.76974,4.769733 -0.75499,0.5799 -5.51447,0.581434 -6.13637,3.606356 -1.67011,8.123423 2.76451,0.20191 4.76683,7.686964 0.16754,0.626295 -6.86738,-0.233596 -5.69566,5.431414 1.27922,6.184713 6.7552,0.761473 6.82756,1.775279 0.0688,0.963495 0.14828,1.926991 0.23763,2.890486 0.24399,2.631142 -2.29487,3.843716 -4.76974,4.769732 -1.57413,0.588992 -9.65897,0.364146 -18.85821,0 -2.64037,-0.104517 -5.14978,-2.154772 -4.76973,-4.769732 1.03625,-7.130166 1.36582,-14.260333 0,-21.390499 -0.49714,-2.595246 2.12822,-4.83945 4.76973,-4.769733 z"
+       sodipodi:nodetypes="ssssssssssssss"
+       inkscape:label="Marshmallow"
+       inkscape:export-filename="..\Godot\Games\2025 Monthly\january\assets\marshmallow.svg"
+       inkscape:export-xdpi="22.4"
+       inkscape:export-ydpi="22.4" />
+  </g>
+</svg>

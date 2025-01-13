@@ -1,0 +1,346 @@
+[gd_scene load_steps=19 format=3 uid="uid://m1qki3cyn8f3"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_7aemw"]
+[ext_resource type="PackedScene" uid="uid://bxr2al06j3qfb" path="res://scenes/fireplace.tscn" id="1_eswkt"]
+[ext_resource type="PackedScene" uid="uid://di0jramv8gp1t" path="res://scenes/marshmallow.tscn" id="2_nr8wq"]
+[ext_resource type="PackedScene" uid="uid://68o3vm87ujex" path="res://scenes/stick.tscn" id="3_s2ngi"]
+[ext_resource type="Texture2D" uid="uid://c3a0xk2qtby63" path="res://assets/spruce.svg" id="4_45xtd"]
+[ext_resource type="Texture2D" uid="uid://cmr5h24du6eij" path="res://assets/snow.svg" id="5_154j0"]
+[ext_resource type="Texture2D" uid="uid://cjiin0kc0yoca" path="res://assets/circle.svg" id="7_8oy2l"]
+[ext_resource type="PackedScene" uid="uid://cvvaqnq73hgor" path="res://scenes/ui.tscn" id="8_ashsh"]
+[ext_resource type="AudioStream" uid="uid://c8c4117w01dds" path="res://audio/ambience/wind.ogg" id="8_pc2xv"]
+[ext_resource type="PackedScene" uid="uid://dtt402sgjnrs7" path="res://scenes/credits.tscn" id="10_r3say"]
+
+[sub_resource type="Curve" id="Curve_wwisu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ab8nm"]
+colors = PackedColorArray(0.713726, 0.784314, 1, 0.792157, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_nq8s5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarshmallowSpawnPoint:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(161, 119)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarshmallowSpawnPoint:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_x75bw"]
+resource_name = "hover"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarshmallowSpawnPoint:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.03333, 2),
+"transitions": PackedFloat32Array(1, 2, 4.02683e-05),
+"update": 0,
+"values": [Vector2(161, 119), Vector2(161, 160), Vector2(161, 119)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p54ft"]
+_data = {
+"RESET": SubResource("Animation_nq8s5"),
+"hover": SubResource("Animation_x75bw")
+}
+
+[sub_resource type="Animation" id="Animation_b2g2q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_xksg3"]
+resource_name = "spawn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.5),
+"transitions": PackedFloat32Array(2, 2, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.3, 1.3), Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"marshmallow_spawn_particles"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1h5m2"]
+_data = {
+"RESET": SubResource("Animation_b2g2q"),
+"spawn": SubResource("Animation_xksg3")
+}
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7aemw")
+schmallow = ExtResource("2_nr8wq")
+
+[node name="Fireplace" parent="." instance=ExtResource("1_eswkt")]
+position = Vector2(580, 392)
+
+[node name="Stick" parent="." instance=ExtResource("3_s2ngi")]
+position = Vector2(174, 491)
+
+[node name="Trees" type="Node" parent="."]
+
+[node name="Spruce" type="Sprite2D" parent="Trees"]
+modulate = Color(0.544974, 0.544974, 0.544974, 1)
+z_index = -10
+position = Vector2(325, 197)
+rotation = -0.109782
+scale = Vector2(0.538997, 0.538997)
+texture = ExtResource("4_45xtd")
+
+[node name="Spruce2" type="Sprite2D" parent="Trees"]
+modulate = Color(0.544974, 0.544974, 0.544974, 1)
+z_index = -10
+position = Vector2(465, 191)
+scale = Vector2(0.538997, 0.538997)
+texture = ExtResource("4_45xtd")
+
+[node name="Spruce3" type="Sprite2D" parent="Trees"]
+modulate = Color(0.544974, 0.544974, 0.544974, 1)
+z_index = -10
+position = Vector2(621, 188)
+scale = Vector2(0.538997, 0.538997)
+texture = ExtResource("4_45xtd")
+
+[node name="Spruce4" type="Sprite2D" parent="Trees"]
+modulate = Color(0.544974, 0.544974, 0.544974, 1)
+z_index = -10
+position = Vector2(792, 222)
+rotation = 0.0535385
+scale = Vector2(0.538997, 0.538997)
+texture = ExtResource("4_45xtd")
+
+[node name="Spruce5" type="Sprite2D" parent="Trees"]
+modulate = Color(0.544974, 0.544974, 0.544974, 1)
+z_index = -10
+position = Vector2(983, 198)
+rotation = 0.125055
+scale = Vector2(0.6539, 0.628676)
+texture = ExtResource("4_45xtd")
+
+[node name="Spruce12" type="Sprite2D" parent="Trees"]
+modulate = Color(0.544974, 0.544974, 0.544974, 1)
+z_index = -10
+position = Vector2(1224, 182)
+rotation = -0.0583883
+scale = Vector2(0.773192, 0.743366)
+texture = ExtResource("4_45xtd")
+
+[node name="Spruce6" type="Sprite2D" parent="Trees"]
+modulate = Color(0.544974, 0.544974, 0.544974, 1)
+z_index = -10
+position = Vector2(140, 213)
+scale = Vector2(0.6539, 0.628676)
+texture = ExtResource("4_45xtd")
+
+[node name="Spruce11" type="Sprite2D" parent="Trees"]
+modulate = Color(0.273873, 0.273873, 0.273873, 1)
+z_index = -11
+position = Vector2(-16, 236)
+rotation = -0.0832233
+scale = Vector2(0.55575, 0.534313)
+texture = ExtResource("4_45xtd")
+
+[node name="Spruce7" type="Sprite2D" parent="Trees"]
+modulate = Color(0.336608, 0.336607, 0.336607, 1)
+z_index = -11
+position = Vector2(241, 236)
+scale = Vector2(0.499652, 0.51687)
+texture = ExtResource("4_45xtd")
+
+[node name="Spruce8" type="Sprite2D" parent="Trees"]
+modulate = Color(0.336608, 0.336607, 0.336607, 1)
+z_index = -11
+position = Vector2(555, 213)
+rotation = 0.168962
+scale = Vector2(0.407066, 0.421094)
+texture = ExtResource("4_45xtd")
+
+[node name="Spruce9" type="Sprite2D" parent="Trees"]
+modulate = Color(0.336608, 0.336607, 0.336607, 1)
+z_index = -11
+position = Vector2(878, 251)
+rotation = -0.0339845
+scale = Vector2(0.55693, 0.504409)
+texture = ExtResource("4_45xtd")
+
+[node name="Spruce10" type="Sprite2D" parent="Trees"]
+modulate = Color(0.336608, 0.336607, 0.336607, 1)
+z_index = -11
+position = Vector2(1101, 238)
+rotation = 0.123581
+scale = Vector2(0.55693, 0.504409)
+texture = ExtResource("4_45xtd")
+
+[node name="Snow" type="Sprite2D" parent="Trees"]
+modulate = Color(0.980392, 0.980392, 0.980392, 1)
+z_index = -4
+position = Vector2(734, 387.875)
+scale = Vector2(1, 0.43599)
+texture = ExtResource("5_154j0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -5
+layout_mode = 0
+offset_left = -284.0
+offset_top = -67.0
+offset_right = 1482.0
+offset_bottom = 760.0
+color = Color(1, 1, 1, 0.890196)
+
+[node name="SnowParticles" type="CPUParticles2D" parent="."]
+modulate = Color(0.95158, 0.95158, 0.95158, 1)
+position = Vector2(606, -67)
+amount = 20
+lifetime = 2.0
+randomness = 0.6
+texture = ExtResource("7_8oy2l")
+emission_shape = 3
+emission_rect_extents = Vector2(800, 1)
+spread = 1.0
+gravity = Vector2(0, 400)
+angular_velocity_max = 72.73
+damping_max = 2.345
+angle_max = 174.5
+scale_amount_min = 0.1
+scale_amount_max = 0.6
+
+[node name="SnowParticles2" type="CPUParticles2D" parent="."]
+modulate = Color(0.95158, 0.95158, 0.95158, 1)
+z_index = -11
+position = Vector2(606, -67)
+amount = 20
+lifetime = 2.0
+randomness = 0.6
+texture = ExtResource("7_8oy2l")
+emission_shape = 3
+emission_rect_extents = Vector2(800, 1)
+spread = 1.0
+gravity = Vector2(0, 400)
+angular_velocity_max = 72.73
+damping_max = 2.345
+angle_max = 174.5
+scale_amount_min = 0.05
+scale_amount_max = 0.2
+color = Color(0.154876, 0.154876, 0.154876, 1)
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Wind" type="AudioStreamPlayer2D" parent="Audio"]
+process_mode = 3
+stream = ExtResource("8_pc2xv")
+volume_db = -2.971
+autoplay = true
+bus = &"SFX"
+
+[node name="MarshmallowSpawnPoint" type="Node2D" parent="."]
+position = Vector2(161, 119)
+scale = Vector2(1e-05, 1e-05)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="MarshmallowSpawnPoint"]
+position = Vector2(0, 20)
+texture = ExtResource("7_8oy2l")
+emission_shape = 1
+emission_sphere_radius = 74.08
+spread = 94.67
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.4
+initial_velocity_max = 101.01
+scale_amount_curve = SubResource("Curve_wwisu")
+color_ramp = SubResource("Gradient_ab8nm")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="MarshmallowSpawnPoint"]
+z_index = 5
+position = Vector2(0, 20)
+emitting = false
+amount = 15
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.76
+texture = ExtResource("7_8oy2l")
+emission_shape = 1
+emission_sphere_radius = 74.08
+spread = 94.67
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.4
+initial_velocity_max = 101.01
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_wwisu")
+color_ramp = SubResource("Gradient_ab8nm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarshmallowSpawnPoint"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_p54ft")
+}
+autoplay = "hover"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="MarshmallowSpawnPoint"]
+libraries = {
+"": SubResource("AnimationLibrary_1h5m2")
+}
+
+[node name="UI" parent="." instance=ExtResource("8_ashsh")]
+layout_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Credits" parent="CanvasLayer" instance=ExtResource("10_r3say")]

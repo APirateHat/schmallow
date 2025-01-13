@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="achievement_resource" load_steps=3 format=3 uid="uid://cgicrso1ffa85"]
+
+[ext_resource type="Script" path="res://scripts/achievement_data.gd" id="1_gesau"]
+[ext_resource type="Texture2D" uid="uid://btqveyk6csqi7" path="res://assets/achievement_icons/marshmallow_bitten.svg" id="1_sjadh"]
+
+[resource]
+script = ExtResource("1_gesau")
+image = ExtResource("1_sjadh")
+text = "Ate a marshmallow!"
+image_color = Color(1, 1, 1, 1)

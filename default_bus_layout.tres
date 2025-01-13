@@ -1,0 +1,22 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://ci5umeqpht5c4"]
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_mvyb0"]
+resource_name = "Amplify"
+volume_db = 3.0
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_w18ad"]
+resource_name = "LowPassFilter"
+cutoff_hz = 500.0
+
+[resource]
+bus/0/volume_db = -0.130497
+bus/0/effect/0/effect = SubResource("AudioEffectAmplify_mvyb0")
+bus/0/effect/0/enabled = true
+bus/1/name = &"SFX"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectLowPassFilter_w18ad")
+bus/1/effect/0/enabled = false

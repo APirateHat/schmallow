@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="achievement_resource" load_steps=3 format=3 uid="uid://cmlwcujjuhem3"]
+
+[ext_resource type="Texture2D" uid="uid://dfhi7xqmdpd1m" path="res://assets/marshmallow.svg" id="1_blbwl"]
+[ext_resource type="Script" path="res://scripts/achievement_data.gd" id="1_lch68"]
+
+[resource]
+script = ExtResource("1_lch68")
+image = ExtResource("1_blbwl")
+text = "Burnt a marshmallow!"
+image_color = Color(0.134565, 0.0514248, 0.00770067, 1)

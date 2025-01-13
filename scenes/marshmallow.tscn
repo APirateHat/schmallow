@@ -1,0 +1,99 @@
+[gd_scene load_steps=12 format=3 uid="uid://di0jramv8gp1t"]
+
+[ext_resource type="Script" path="res://scripts/marshmallow.gd" id="1_pwsso"]
+[ext_resource type="Texture2D" uid="uid://dfhi7xqmdpd1m" path="res://assets/marshmallow.svg" id="2_1lwdi"]
+[ext_resource type="Shader" path="res://marshmallow.gdshader" id="3_wfhka"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3onkh"]
+size = Vector2(126, 126)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0n1o3"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pvx80"]
+width = 128
+height = 128
+noise = SubResource("FastNoiseLite_0n1o3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_euxij"]
+shader = ExtResource("3_wfhka")
+shader_parameter/dissolve_value = 0.0
+shader_parameter/color_uncooked = Color(0.477019, 0.965244, 0, 1)
+shader_parameter/color_cooked = Color(0.896118, 0.421219, 0, 1)
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_pvx80")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6cwja"]
+resource_local_to_scene = true
+shader = ExtResource("3_wfhka")
+shader_parameter/dissolve_value = 0.0
+shader_parameter/color_uncooked = Color(0.477019, 0.965244, 0, 1)
+shader_parameter/color_cooked = Color(0.0783742, 0.0171634, 0, 1)
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_pvx80")
+
+[sub_resource type="Animation" id="Animation_h2ern"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3nt1e"]
+resource_name = "bounce"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1.8025, 1.8025, 1, 1),
+"update": 0,
+"values": [Vector2(1.36, 0.599999), Vector2(0.799998, 1.24), Vector2(1, 0.8), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0abjd"]
+_data = {
+"RESET": SubResource("Animation_h2ern"),
+"bounce": SubResource("Animation_3nt1e")
+}
+
+[node name="Marshmallow" type="Area2D"]
+z_index = 1
+script = ExtResource("1_pwsso")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_3onkh")
+
+[node name="Graphics" type="Node2D" parent="."]
+
+[node name="Icon2" type="Sprite2D" parent="Graphics"]
+texture = ExtResource("2_1lwdi")
+
+[node name="Icon" type="Sprite2D" parent="Graphics"]
+material = SubResource("ShaderMaterial_euxij")
+texture = ExtResource("2_1lwdi")
+
+[node name="IconBurnt" type="Sprite2D" parent="Graphics"]
+material = SubResource("ShaderMaterial_6cwja")
+texture = ExtResource("2_1lwdi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0abjd")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -3.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

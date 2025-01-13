@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="achievement_resource" load_steps=3 format=3 uid="uid://b5w4ixaueepxk"]
+
+[ext_resource type="Texture2D" uid="uid://ddwpiwhmtty0e" path="res://assets/ember.svg" id="1_fg6e0"]
+[ext_resource type="Script" path="res://scripts/achievement_data.gd" id="1_vv0kp"]
+
+[resource]
+script = ExtResource("1_vv0kp")
+image = ExtResource("1_fg6e0")
+text = "Poked the fire!"
+image_color = Color(1, 0.764116, 0.195986, 1)

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="25.166983mm"
+   height="28.447449mm"
+   viewBox="0 0 25.166983 28.447449"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="Schmallow.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="2.0686841"
+     inkscape:cx="282.30506"
+     inkscape:cy="426.59968"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-49.092939,-133.59962)">
+    <g
+       id="g18"
+       inkscape:label="Stick"
+       style="display:none">
+      <path
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 56.403607,92.087522 -2.430087,51.671328 -0.639498,16.11532 13.045734,0.7674 -2.685886,-31.33534 0.511598,-13.30153 3.964879,-6.52287 -2.941685,-2.17429 -3.453283,2.17429 -3.83698,-20.975489 z"
+         id="path18"
+         inkscape:export-filename="..\Godot\Games\2025 Monthly\january\assets\stick.svg"
+         inkscape:export-xdpi="22.4"
+         inkscape:export-ydpi="22.4" />
+      <path
+         style="fill:#b3b3b3;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 64.753957,159.62393 -7.506393,1.89921 -4.341047,-2.08008 1.175699,-14.74148 1.26614,-36.44671 2.894031,-12.661388 c 3.152478,17.131498 -9.171238,69.885008 6.51157,64.030448 z"
+         id="path17"
+         sodipodi:nodetypes="ccccccc" />
+      <path
+         id="path1"
+         style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         d="m 56.735506,78.729143 c -0.09081,33.182197 -1.548586,47.361387 -3.606785,80.919797 4.032725,2.49048 8.412309,1.85927 12.858648,0.62724 0.801125,-15.13654 -6.280557,-32.89335 -0.627366,-46.88953 l 2.509762,-3.29369 -2.195469,-2.19529 -3.872499,2.06777 -0.518828,-4.89077 z"
+         sodipodi:nodetypes="ccccccccc"
+         inkscape:label="Stick" />
+    </g>
+    <path
+       id="path2"
+       style="display:inline;fill:#ffffff;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers fill stroke"
+       d="m 59.701781,135.09973 c -1.657578,0.0119 -2.840188,1.58651 -3.308971,2.62427 -0.833052,1.84356 0.918806,3.50413 3.991617,4.89207 0.426844,0.19054 0.865177,0.35093 1.30638,0.47801 l 1.150834,15.40216 c 0,0 2.713435,1.53735 4.522205,1.80867 1.808766,0.27131 3.345961,-6.24031 5.06429,-8.86302 1.71833,-2.62272 -4.431254,-11.2143 -4.431254,-11.2143 l -4.852418,-4.0318 c -1.224696,-0.55328 -2.268938,-1.10444 -3.442683,-1.09606 z m -6.717936,7.814 c -2.711839,5e-5 -2.352194,0.86231 -2.352308,1.92598 -6.19e-4,1.06387 -0.360049,2.94964 2.352308,2.94969 2.712558,6e-5 5.231178,0.41645 4.910811,-2.94969 -1.14e-4,-1.95905 -2.198771,-1.92604 -4.910811,-1.92598 z m 0.976591,6.0765 c -2.970518,-3e-5 -3.236466,0.57749 -3.211529,1.99949 0.03167,1.80612 -0.373744,2.57558 2.59719,2.57555 2.970732,-1.1e-4 5.992976,-0.19398 5.800973,-2.57555 -0.211922,-2.62863 -2.216318,-1.99938 -5.186634,-1.99949 z m 0.314951,6.69726 c -3.312575,5e-5 -3.10473,1.36628 -3.033939,2.57589 0.102414,1.74996 -0.224333,2.23779 3.087858,2.23784 3.312192,-5e-5 4.426124,0.34421 4.426255,-2.17616 1.74e-4,-3.3519 -1.167599,-2.63752 -4.480174,-2.63757 z"
+       sodipodi:nodetypes="cccccsscccscscscscsccscsc"
+       inkscape:label="Hand" />
+  </g>
+</svg>

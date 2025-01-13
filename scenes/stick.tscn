@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://68o3vm87ujex"]
+
+[ext_resource type="Script" path="res://scripts/stick.gd" id="1_lnmcs"]
+[ext_resource type="Texture2D" uid="uid://blunks3eaqd0x" path="res://assets/stick.svg" id="2_anryg"]
+[ext_resource type="Texture2D" uid="uid://cwexci23aapku" path="res://assets/hand.svg" id="3_htdpg"]
+[ext_resource type="PackedScene" uid="uid://di0jramv8gp1t" path="res://scenes/marshmallow.tscn" id="4_wflng"]
+[ext_resource type="Texture2D" uid="uid://y5ddxedw74bj" path="res://assets/circle_stroked.svg" id="5_fagt1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhtmx"]
+size = Vector2(27, 35)
+
+[sub_resource type="Curve" id="Curve_8fvmj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_leqby"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+metadata/_snap_enabled = true
+
+[node name="Stick" type="Area2D" node_paths=PackedStringArray("food_particles") groups=["Stick"]]
+script = ExtResource("1_lnmcs")
+schmallow = ExtResource("4_wflng")
+food_particles = NodePath("FoodParticles")
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.738038, 0.40381, 0, 1)
+position = Vector2(5, -104)
+texture = ExtResource("2_anryg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7.5, -250)
+shape = SubResource("RectangleShape2D_lhtmx")
+
+[node name="SchmallowAttatchmentPoint" type="Node2D" parent="."]
+position = Vector2(-9, -249.5)
+
+[node name="Hand" type="Sprite2D" parent="."]
+modulate = Color(0.885039, 0.541678, 0.467909, 1)
+position = Vector2(9, -4)
+texture = ExtResource("3_htdpg")
+
+[node name="FoodParticles" type="CPUParticles2D" parent="."]
+z_index = 4
+position = Vector2(-9, -249)
+emitting = false
+amount = 10
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.96
+randomness = 0.54
+texture = ExtResource("5_fagt1")
+emission_shape = 1
+emission_sphere_radius = 32.03
+direction = Vector2(0, -1)
+spread = 180.0
+initial_velocity_min = 212.12
+initial_velocity_max = 626.26
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_8fvmj")
+color_initial_ramp = SubResource("Gradient_leqby")

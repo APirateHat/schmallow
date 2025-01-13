@@ -1,0 +1,12 @@
+Made by APirateHat
+
+Tools:
+	Godot Engine
+	Inkscape
+	Reaper
+
+Assets:
+	Cold Wind.wav - Sony Sound Effects
+	Fire Intense Crackling - Sony Sound Effects
+	Flash Fire Ignite.wav - Sony Sound Effects
+	Kenney's Input Prompts - https://kenney.nl/assets/input-prompts

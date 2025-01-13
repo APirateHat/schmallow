@@ -1,0 +1,141 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvvaqnq73hgor"]
+
+[ext_resource type="Theme" uid="uid://5yapkxiaw6of" path="res://main_theme.tres" id="1_g5ji2"]
+[ext_resource type="Script" path="res://scripts/ui.gd" id="2_mv8ld"]
+[ext_resource type="PackedScene" uid="uid://blcxwvf6tjwhn" path="res://scenes/achievement.tscn" id="3_omkpi"]
+[ext_resource type="Texture2D" uid="uid://cldpjpannugai" path="res://assets/ui/keyboard_e.png" id="4_mc72e"]
+[ext_resource type="Texture2D" uid="uid://0ujry7mtk0jp" path="res://assets/ui/food_icon.svg" id="5_xxkty"]
+
+[node name="UI" type="Control" node_paths=PackedStringArray("food_icons")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_g5ji2")
+script = ExtResource("2_mv8ld")
+achievement = ExtResource("3_omkpi")
+food_icons = [NodePath("HungerBar/HBoxContainer/TextureRect5"), NodePath("HungerBar/HBoxContainer/TextureRect4"), NodePath("HungerBar/HBoxContainer/TextureRect3"), NodePath("HungerBar/HBoxContainer/TextureRect2"), NodePath("HungerBar/HBoxContainer/TextureRect")]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -110.0
+offset_right = 315.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "Press"
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/MarginContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_mc72e")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="CenterContainer/MarginContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "to eat a marshmallow"
+
+[node name="Achievements" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 139.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 50
+
+[node name="AchievementList" type="VBoxContainer" parent="Achievements"]
+layout_mode = 2
+theme_override_constants/separation = 75
+
+[node name="HungerBar" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -356.0
+offset_top = -83.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HungerBar"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HungerBar/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("5_xxkty")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HungerBar/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("5_xxkty")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="HungerBar/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("5_xxkty")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="HungerBar/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("5_xxkty")
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="HungerBar/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("5_xxkty")
+expand_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HungerBar"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HungerBar/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_xxkty")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HungerBar/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_xxkty")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="HungerBar/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_xxkty")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="HungerBar/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_xxkty")
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="HungerBar/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_xxkty")
+expand_mode = 2
